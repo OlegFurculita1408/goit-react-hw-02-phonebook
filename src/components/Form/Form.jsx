@@ -62,13 +62,6 @@ class Form extends Component {
     }
 }
 // Form.propTypes = {
-//     createUser: PropTypes.func.isRequired,
-//     contacts: PropTypes.arrayOf(
-//       PropTypes.shape({
-//         id: PropTypes.string.isRequired,
-//         name: PropTypes.string.isRequired,
-//         number: PropTypes.string.isRequired,
-//       })
-//     ).isRequired,
+//     onSubmit: PropTypes.func.isRequired,
 //   };
 export default Form
