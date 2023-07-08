@@ -5,9 +5,7 @@ import ContactList from './ContactList/ContactList';
 
 class App extends Component {
   state = {
-    contacts: [
-      
-    ],
+    contacts: [],
     filter: "",
   };
 
@@ -51,13 +49,15 @@ class App extends Component {
           fontSize: 30,
           color: '#010101'
         }}
-      ><h1>Phonebook</h1>
+      > <h1>Phonebook</h1>
         <ContactForm 
           addContact ={this.createUser}
+
           />
           <h2>Contacts</h2>
         <Filter filter={filter}
           handleFilterChange={this.handleFilterChange}
+          contacts={contacts}
           />
         <ContactList
           contacts={filtere}

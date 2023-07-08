@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import css from './Form.module.css';
 import { nanoid } from "nanoid";
 
-class Form extends Component {
+class ContactForm extends Component {
     state = {
         name: '',
         number: '',
@@ -54,7 +54,14 @@ class Form extends Component {
         )
     }
 }
-// Form.propTypes = {
-//     addContact: PropTypes.func,
+// ContactForm.propTypes = {
+//     addContact: PropTypes.func.isRequired,
+//     contacts: PropTypes.arrayOf(
+//       PropTypes.shape({
+//         id: PropTypes.string.isRequired,
+//         name: PropTypes.string.isRequired,
+//         number: PropTypes.string.isRequired,
+//       })
+//     ).isRequired,
 //   };
-export default Form
+export default ContactForm
