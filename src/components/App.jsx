@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { nanoid } from "nanoid";
-import Form from "./Form/Form";
-import Filter from "./Filters/FilterForm";
+import ContactForm from "./Form/ContactForm";
+import Filter from "./Filters/Filter";
 import ContactList from './ContactList/ContactList';
 
 class App extends Component {
@@ -15,15 +15,22 @@ class App extends Component {
     filter: "",
   };
 
-  createUser = (name, number) => {
-    const newContact = { id: nanoid(), name, number };
-    this.setState(({ contacts }) => ({
-      contacts: [...contacts, newContact],
-    }));
+  createUser = (data) => {
+    const newContact = {
+      id: nanoid(),
+      ...data
+    };
+    console.log(data)
+      if (data.name.toLowerCase() === newContact.name.toLowerCase()) {
+        alert(`${data.name} is already in contacts.`);
+        return;
+      }
+      return { contacts: [...data.contacts.newContact] };
   };
+  
 
-  handleFilterChange = (event) => {
-    this.setState({ filter: event.target.value });
+  handleFilterChange = (e) => {
+    this.setState({ filter: e.target.value });
   };
 
   handlerDelete = (id) => {
@@ -50,12 +57,13 @@ class App extends Component {
           color: '#010101'
         }}
       ><h1>Phonebook</h1>
-        <Form 
-          onsubmit ={this.createUser}
+        <ContactForm 
+          addContact ={this.createUser}
           />
           <h2>Contacts</h2>
         <Filter filter={filter}
-          handleFilterChange={this.handleFilterChange} />
+          handleFilterChange={this.handleFilterChange}
+          />
         <ContactList
           contacts={filtere}
           handlerDelete={this.handlerDelete}

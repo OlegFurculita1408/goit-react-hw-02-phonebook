@@ -16,7 +16,8 @@ class ContactList extends Component {
                         <p>
                             {name}: <span>{number}</span>
                         </p>
-                        <button className={css.itemBtn} onClick={() => handlerDelete(id)}>Delete</button>
+                        <button className={css.itemBtn}
+                                 onClick={() => handlerDelete(id)}>Delete</button>
                         </li>
                     );
                 })}
