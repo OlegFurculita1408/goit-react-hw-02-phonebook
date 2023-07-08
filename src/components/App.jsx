@@ -52,7 +52,7 @@ class App extends Component {
       > <h1>Phonebook</h1>
         <ContactForm 
           addContact ={this.createUser}
-
+          contacts={contacts}
           />
           <h2>Contacts</h2>
         <Filter filter={filter}
