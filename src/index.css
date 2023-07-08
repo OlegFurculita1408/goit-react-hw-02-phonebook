@@ -23,6 +23,6 @@ button:hover {
   background-color: blue;
   color: white;
 }
-/* .container {
+.container {
   flex-direction: column;
-} */
+}
