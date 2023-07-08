@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { Component } from "react";
 import css from './ContactList.module.css';
+import { nanoid } from "nanoid";
 
 
 class ContactList extends Component {
@@ -12,7 +13,7 @@ class ContactList extends Component {
             <ul className={css.contactList}>
                 {contacts.map(({ id, name, number }) => {
                     return (
-                        <li key={id} className={css.contactsItem}>
+                        <li key={nanoid()} className={css.contactsItem}>
                         <p>
                             {name}: <span>{number}</span>
                         </p>
@@ -29,7 +30,7 @@ class ContactList extends Component {
 ContactList.propTypes = {
     contacts: PropTypes.arrayOf(
     PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        id: PropTypes.string,
         name: PropTypes.string.isRequired,
         number: PropTypes.string.isRequired,
         })

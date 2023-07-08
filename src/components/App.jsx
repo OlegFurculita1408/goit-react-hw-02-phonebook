@@ -1,5 +1,4 @@
 import { Component } from "react";
-import { nanoid } from "nanoid";
 import ContactForm from "./Form/ContactForm";
 import Filter from "./Filters/Filter";
 import ContactList from './ContactList/ContactList';
@@ -7,27 +6,23 @@ import ContactList from './ContactList/ContactList';
 class App extends Component {
   state = {
     contacts: [
-      { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-      { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-      { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-      { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+      
     ],
     filter: "",
   };
 
-  createUser = (data) => {
-    const newContact = {
-      id: nanoid(),
-      ...data
-    };
-    console.log(data)
-      if (data.name.toLowerCase() === newContact.name.toLowerCase()) {
-        alert(`${data.name} is already in contacts.`);
-        return;
-      }
-      return { contacts: [...data.contacts.newContact] };
+  createUser = (contact) => {
+    this.setState(prevState => {
+      const exist = prevState.contacts.find(
+        ({ name }) => name.toLowerCase() === contact.name.toLowerCase()
+      );
+        if (exist) {
+          alert(`${contact.name} is already in contacts.`);
+          return;
+        }
+        return { contacts: [...prevState.contacts, contact] };
+    });
   };
-  
 
   handleFilterChange = (e) => {
     this.setState({ filter: e.target.value });
