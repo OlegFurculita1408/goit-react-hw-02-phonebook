@@ -1,13 +1,9 @@
 import PropTypes from "prop-types";
-import { Component } from "react";
 import css from './ContactList.module.css';
 import { nanoid } from "nanoid";
 
 
-class ContactList extends Component {
-    state = {};
-        render() {
-        const { contacts, handlerDelete } = this.props;
+const ContactList = ({ contacts, handlerDelete }) => {
         return (
             <>
             <ul className={css.contactList}>
@@ -25,7 +21,6 @@ class ContactList extends Component {
             </ul>
             </>
         );
-        }
     }
 ContactList.propTypes = {
     contacts: PropTypes.arrayOf(

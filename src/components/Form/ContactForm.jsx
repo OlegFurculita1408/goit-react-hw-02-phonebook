@@ -7,6 +7,7 @@ class ContactForm extends Component {
     state = {
         name: '',
         number: '',
+        id: '',
       }
 
     handlerChenge = (e) => {
@@ -17,7 +18,7 @@ class ContactForm extends Component {
 
     handlerSubmit = (e) => {
         e.preventDefault()
-        this.props.addContact({ name: this.state.name, number: this.state.number });
+        this.props.addContact({ id: nanoid(), name: this.state.name, number: this.state.number });
         this.reset();
         };
         reset = () => {
